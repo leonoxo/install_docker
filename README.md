@@ -1,5 +1,6 @@
 # 在Ubuntu 24.04 安裝Docker, 使用curl下載腳本並運行
 curl -fsSL https://raw.githubusercontent.com/leonoxo/install_docker/main/install_docker.sh | bash
+
 curl -fsSL 這四個參數字母代表以下意思：
 
 	•	-f: Fail silently. 當 HTTP 狀態碼大於或等於 400 時，curl 會退出並不會輸出錯誤信息到標準輸出。這樣可以避免下載失敗時顯示錯誤頁面的 HTML 內容。
