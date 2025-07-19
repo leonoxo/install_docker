@@ -1,19 +1,55 @@
-# 在Ubuntu 24.04 安裝Docker, 使用curl下載腳本並運行
-curl -fsSL https://raw.githubusercontent.com/leonoxo/install_docker/main/install_docker.sh | bash
+# Docker 一鍵安裝腳本 (適用於 Debian/Ubuntu)
 
-curl -fsSL 這四個參數字母代表以下意思：
+這是一個優化過的 Shell 腳本，用於在基於 Debian 的 Linux 發行版（如 Ubuntu）上自動化安裝 Docker Engine。
 
-	•	-f: Fail silently. 當 HTTP 狀態碼大於或等於 400 時，curl 會退出並不會輸出錯誤信息到標準輸出。這樣可以避免下載失敗時顯示錯誤頁面的 HTML 內容。
-	•	-s: Silent mode. 使 curl 在執行過程中不顯示進度條或錯誤信息。這樣可以使輸出更加簡潔。
-	•	-S: Show error. 配合 -s 使用，使 curl 在 silent 模式下如果出錯仍然顯示錯誤信息。
-	•	-L: Location. 如果下載的 URL 有重定向 (3XX 狀態碼)，curl 會跟隨重定向 URL。
+腳本設計的核心理念是**安全**、**高效**與**使用者友好**。
 
-組合起來，curl -fsSL 的作用是：
+## ✨ 功能亮點
 
-	•	安靜地下載文件，不顯示進度條。
-	•	在遇到 HTTP 錯誤時，退出並顯示錯誤信息。
-	•	跟隨任何重定向。
+- **冪等性設計**：腳本會自動檢查 Docker 是否已安裝。如果已安裝，則會提示並安全退出，避免重複執行。
+- **錯誤即停**：在執行過程中，任何指令失敗都會立即中止腳本，防止系統進入不確定的狀態。
+- **自動化權限設定**：安裝完成後，會自動將目前使用者加入 `docker` 群組，讓您無需 `sudo` 即可直接執行 Docker 指令。
+- **清晰的步驟指引**：腳本的每一步都有明確的輸出，讓您清楚了解安裝進度。
+- **遵循官方最佳實踐**：使用 Docker 官方推薦的 GPG 金鑰儲存方式，確保安裝來源的安全性。
 
-這些選項結合使用時，可以更可靠地從 URL 下載文件，並在出現問題時給出適當的錯誤信息。
+## 🚀 如何使用
 
-完整的命令用於直接下載並執行腳本：
+1.  **下載腳本**
+
+    您可以使用 `git` 來複製本專案：
+    ```bash
+    git clone https://github.com/leonoxo/install_docker.git
+    cd install_docker
+    ```
+    或者，直接下載腳本檔案：
+    ```bash
+    curl -O https://raw.githubusercontent.com/leonoxo/install_docker/main/install_docker.sh
+    ```
+
+2.  **授予執行權限**
+
+    ```bash
+    chmod +x install_docker.sh
+    ```
+
+3.  **執行安裝**
+
+    ```bash
+    ./install_docker.sh
+    ```
+
+4.  **重新登入**
+
+    安裝完成後，您需要**完全登出後再重新登入**，或開啟一個新的終端機視窗，以讓使用者群組的變更生效。
+
+5.  **驗證安裝**
+
+    執行以下指令來確認 Docker 是否安裝成功並可正常運作：
+    ```bash
+    docker run hello-world
+    ```
+    如果看到 "Hello from Docker!" 的訊息，代表您已成功安裝！
+
+## 📝 授權
+
+本專案採用 [MIT License](LICENSE) 授權。
