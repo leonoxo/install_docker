@@ -40,6 +40,3 @@
     ```
     如果看到 "Hello from Docker!" 的訊息，代表您已成功安裝！
 
-## 📝 授權
-
-本專案採用 [MIT License](LICENSE) 授權。
