@@ -14,31 +14,21 @@
 
 ## 🚀 如何使用
 
-1.  **下載腳本**
+1.  **一鍵安裝**
 
-    您可以使用 `git` 來複製本專案：
+    您只需要在終端機中執行以下指令，即可自動下載並執行安裝腳本：
     ```bash
-    git clone https://github.com/leonoxo/install_docker.git
-    cd install_docker
+    curl -fsSL https://raw.githubusercontent.com/leonoxo/install_docker/main/install_docker.sh | sudo bash
     ```
-    或者，直接下載腳本檔案：
-    ```bash
-    curl -O https://raw.githubusercontent.com/leonoxo/install_docker/main/install_docker.sh
-    ```
+    > **或者**，您也可以透過 `git` 複製本專案後手動執行：
+    > ```bash
+    > git clone https://github.com/leonoxo/install_docker.git
+    > cd install_docker
+    > chmod +x install_docker.sh
+    > ./install_docker.sh
+    > ```
 
-2.  **授予執行權限**
-
-    ```bash
-    chmod +x install_docker.sh
-    ```
-
-3.  **執行安裝**
-
-    ```bash
-    ./install_docker.sh
-    ```
-
-4.  **重新登入**
+2.  **重新登入**
 
     安裝完成後，您需要**完全登出後再重新登入**，或開啟一個新的終端機視窗，以讓使用者群組的變更生效。
 
